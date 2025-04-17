@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Gitee OAuth 示例
 
-## Getting Started
+![GitHub License](https://img.shields.io/github/license/normal-coder/nextjs-gitee-oauth) 
+![GitHub top language](https://img.shields.io/github/languages/top/normal-coder/nextjs-gitee-oauth)
 
-First, run the development server:
+
+这是一个使用 Next.js 15 和 Gitee OAuth 构建的应用示例，展示了如何集成 Gitee 账号登录功能。
+
+![授权登录页](./docs/assets/login.png)
+
+## 特性
+
+- ⚡️ [Next.js 15](https://nextjs.org/) 框架，使用 [Turbopack](https://turbo.wiki/pack) 提供极速开发体验
+- 🔐 集成 [Gitee OAuth](https://gitee.com/api/v5/oauth_doc) 登录
+- 🎨 基于 [shadcn/ui](https://ui.shadcn.com/) 构建的现代 UI
+- 🌓 支持亮色/暗色主题，可跟随系统设置
+- 📱 完全响应式设计
+- 🚀 使用 [pnpm](https://pnpm.io/) 作为包管理器
+
+## 快速开始
+
+### 环境要求
+
+- Node.js >= 18.17.0
+- pnpm >= 8.0.0
+
+### 安装
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 克隆项目
+git clone https://gitee.com/normalcoder/nextjs-gitee-oauth.git
+cd nextjs-gitee-oauth
+
+# 安装依赖
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 开发
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 复制环境变量文件：
+    ```bash
+    cp .env.example .env.local
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. 在 `.env.local` 中配置你的 Gitee OAuth 应用信息：
+    ```env
+    # Gitee OAuth 配置
+    NEXT_PUBLIC_GITEE_CLIENT_ID=你的客户端 ID
+    GITEE_CLIENT_SECRET=你的客户端密钥
+    NEXT_PUBLIC_GITEE_REDIRECT_URI=http://localhost:3000/api/auth/callback/gitee 
+    ```
 
-## Learn More
+3. 启动开发服务器：
+    ```bash
+    pnpm dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+现在你可以访问 http://localhost:3000 查看应用。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 构建
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# 生产环境构建
+pnpm build
 
-## Deploy on Vercel
+# 启动生产服务器
+pnpm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 项目结构
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+.
+├── app/            # Next.js 应用目录
+│   ├── api/        # API 路由
+│   ├── dashboard/  # 用户仪表盘页面
+│   └── page.tsx    # 首页
+├── components/     # React 组件
+├── lib/            # 工具函数
+└── public/         # 静态资源
+```
+
+## 开源许可
+
+本项目基于 [MIT](./LICENSE) 发布
