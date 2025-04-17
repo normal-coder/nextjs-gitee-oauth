@@ -1,4 +1,4 @@
-# Next.js Gitee OAuth 示例
+# Next.js 集成 Gitee OAuth 示例
 
 ![GitHub License](https://img.shields.io/github/license/normal-coder/nextjs-gitee-oauth) 
 ![GitHub top language](https://img.shields.io/github/languages/top/normal-coder/nextjs-gitee-oauth)
@@ -7,6 +7,9 @@
 这是一个使用 Next.js 15 和 Gitee OAuth 构建的应用示例，展示了如何集成 Gitee 账号登录功能。
 
 ![授权登录页](./docs/assets/login.png)
+
+[点此体验在线 Demo](https://nextjs-gitee-oauth.vercel.app)
+
 
 ## 特性
 
