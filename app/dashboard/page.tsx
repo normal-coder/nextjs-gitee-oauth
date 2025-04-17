@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { ThemeToggle } from "@/components/theme-toggle"
 import Link from "next/link"
 
 export default async function Dashboard() {
@@ -18,16 +19,19 @@ export default async function Dashboard() {
   try {
     session = JSON.parse(sessionCookie.value)
   } catch (error) {
-    console.error("解析会话 Cookie 失败:", error)
+    console.error("解析会话 Cookie 失败：", error)
     redirect("/")
   }
 
   const user = session.user
 
   return (
-    <div className="container py-10">
-      <div className="flex flex-col items-center justify-center space-y-6">
-        <Card className="w-full max-w-md">
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-10">
+      <div className="absolute right-4 top-4 md:right-8 md:top-8">
+        <ThemeToggle />
+      </div>
+      <div className="container max-w-screen-xl mx-auto flex flex-col items-center justify-center">
+        <Card className="w-full max-w-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">欢迎回来，{user.name || user.login}</CardTitle>
             <CardDescription>您已成功使用 Gitee 账号登录</CardDescription>
